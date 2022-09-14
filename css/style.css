@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 /* lato-regular - latin */
 @font-face {
   font-family: 'Lato';
@@ -27,10 +34,12 @@
 }
 
 html{
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 *, *::before, *::after{
-  box-sizing: inherit;
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
 }
 
 body{
@@ -88,6 +97,8 @@ img{
    top: 0; /* прилепить header к верху экрана и слева */
    left: 0;
    width: 100%;
+   -webkit-transition: .2s linear;
+   -o-transition: .2s linear;
    transition: .2s linear; /* чтобы переход к бэкграунду переходил плавно при скролле страницы */
    padding-bottom: 20px;
    z-index: 77; /* чтобы хедер гарантированно был вышше всех остальных блоков, т.е. при скролле не скрывался под ними */
@@ -99,16 +110,26 @@ img{
 }
 
 .header_wrapper{
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap; /*чтобы элементы списка не наезжали друг на друга*/
-  align-items: flex-end; /*выравнивание текста по нижнему краю*/
-  justify-content: space-between; /*размещаем лого и список по разным краям*/
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap; /*чтобы элементы списка не наезжали друг на друга*/
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end; /*выравнивание текста по нижнему краю*/
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between; /*размещаем лого и список по разным краям*/
   padding-top: 56px;
 }
 
 .header_list{
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .header_item{
@@ -154,7 +175,9 @@ img{
 
 .burger_line_second{
   top: 50%;
-  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
 }
 
 .burger_line_third{
@@ -169,7 +192,7 @@ img{
 
 .intro{
   min-height: 100vh;
-  background: url(../img/intro_bg.jpeg) no-repeat center;
+  background: url(../img/intro_bg-min.jpeg) no-repeat center;
   background-size: cover; /* картинка будет покрывать весь блок при любых его размерах */
   padding-top: 263px;
   padding-bottom: 223px;
@@ -193,8 +216,11 @@ img{
 }
 
 .search-form_info{
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .search-form_field{
@@ -207,6 +233,30 @@ img{
   margin-right: 60px;
   padding-left: 43px;
   padding-bottom: 22px;
+  font-weight: 500;
+  font-size: 18px;
+  color: #fff;
+}
+
+.search-form_field::-webkit-input-placeholder{ /* стилизуем плэсхолдер */
+  font-weight: 500;
+  font-size: 18px;
+  color: #fff;
+}
+
+.search-form_field::-moz-placeholder{ /* стилизуем плэсхолдер */
+  font-weight: 500;
+  font-size: 18px;
+  color: #fff;
+}
+
+.search-form_field:-ms-input-placeholder{ /* стилизуем плэсхолдер */
+  font-weight: 500;
+  font-size: 18px;
+  color: #fff;
+}
+
+.search-form_field::-ms-input-placeholder{ /* стилизуем плэсхолдер */
   font-weight: 500;
   font-size: 18px;
   color: #fff;
@@ -246,7 +296,8 @@ img{
   max-width: 1262px;
   background-color: white;
   margin: 0 auto;
-  box-shadow: 0px 2px 20px rgba(21, 24, 36, 0.15993); /* создаем тень у эл-та */
+  -webkit-box-shadow: 0px 2px 20px rgba(21, 24, 36, 0.15993);
+          box-shadow: 0px 2px 20px rgba(21, 24, 36, 0.15993); /* создаем тень у эл-та */
   position: relative;
 }
 
@@ -259,18 +310,23 @@ img{
   position: absolute; /* высота абсолютно спозиционированного эл-та не учитывается в общем потоке */
   top: 0;
   left: 0;
-  transform: translateY(-100%); /* сдвигаем эл-т по оси Y на 100% его высоты */
+  -webkit-transform: translateY(-100%);
+      -ms-transform: translateY(-100%);
+          transform: translateY(-100%); /* сдвигаем эл-т по оси Y на 100% его высоты */
   background-color: white;
 }
 
 .benefits_cards{
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 1fr 55px 1fr 55px 1fr;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 55px; /* устанавливаемм отступы между гридами */
   padding: 0 100px;
 }
 
 .benefits_card{
+  -ms-grid-column-span: 1;
   grid-column: span 1; /* наши карточки будут занимать по 1 колонке */
   margin-bottom: 112px;
 }
@@ -305,6 +361,8 @@ img{
   color: #006DFE;
   text-decoration: none; /* Убираем нижнее подчеркивание у ссылки */
   background: url(../img/svg/Shape\ \(1\).svg) no-repeat 95% center; /* размещаем стрелку */
+  -webkit-transition: .2s all;
+  -o-transition: .2s all;
   transition: .2s all;  /* добавляем плавности, когда стрекла будет отодвигаться */
 }
 /* свойство ниже меняет местоположение стрелки, при фокусе или ховере на нее, она будет отодвигаться чуть правее(с 95% до 100%)*/
@@ -323,10 +381,17 @@ img{
 
 /* Для того чтобы разместить заголовок(блочный эл-т, который занимает всю ширину строку) и view-all на одной строке, создать для них общий контейнер(например div) и для него прописать следующее:*/
 .places_caption{
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
-  align-items: center; /* размещаем эл по центру */
-  justify-content: space-between; /* разносим эл-ты по разным концам строки */
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; /* размещаем эл по центру */
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between; /* разносим эл-ты по разным концам строки */
   margin-bottom: 36px;
 }
 
@@ -340,6 +405,8 @@ img{
   text-decoration: none; /* убираем нижнее подчеркивание у ссылки */
   padding-right: 59px;
   background: url(../img/svg/Shape\ \(1\).svg) no-repeat right center;
+  -webkit-transition: .2s all;
+  -o-transition: .2s all;
   transition: .2s all;
 }
 
@@ -349,7 +416,9 @@ img{
 
 /* формируем грид контейнер для карточек */
 .places_cards{
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 1fr 10px 1fr 10px 1fr 10px 1fr 10px 1fr 10px 1fr;
   grid-template-columns: repeat(6, 1fr); /* Делаем 6 колонок, т.к. карточки распологаются по 2 в верхнем ряду и по 3 в нижнем. Ближайшее число которое делится на 2 и 3 это 6. */
   grid-column-gap: 10px; /* определяет расстояние (промежуток) между строками и столбцами в макете сетки */
   grid-row-gap: 10px;
@@ -375,7 +444,9 @@ img{
 
 /* при наведении на картинку, она будет приближаться*/
 .places_card:hover .places_card-pic{
-  transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+      -ms-transform: scale(1.05);
+          transform: scale(1.05);
 }
 
 .places_card-title{
@@ -389,26 +460,32 @@ img{
 }
 
 .places_card_size_lg{
+  -ms-grid-column-span: 3;
   grid-column: span 3; /* указываем чтобы картинка заняла 3 колонки из наших 6*/
 }
 
 .places_card_size_sm{
+  -ms-grid-column-span: 2;
   grid-column: span 2; /* указываем чтобы картинка заняла 2 колонки из наших 6*/
 }
 
 .places_card-pic{
   width: 100%;
+  -webkit-transition: .15s all;
+  -o-transition: .15s all;
   transition: .15s all;
 }
 
 .places_card-pic-sm{
   height: 283px;
-  object-fit: cover; /* при сжатии картинки, ее высоте не будет меняться, а лишняя ширина будет обрезаться по бокам, сохраняя центр картинки */
+  -o-object-fit: cover;
+     object-fit: cover; /* при сжатии картинки, ее высоте не будет меняться, а лишняя ширина будет обрезаться по бокам, сохраняя центр картинки */
 }
 
 .places_card-pic-lg{
   height: 354px;
-  object-fit: cover; /* при сжатии картинки, ее высоте не будет меняться, а лишняя ширина будет обрезаться по бокам, сохраняя центр картинки */
+  -o-object-fit: cover;
+     object-fit: cover; /* при сжатии картинки, ее высоте не будет меняться, а лишняя ширина будет обрезаться по бокам, сохраняя центр картинки */
 }
 
 /* при наведении и щелчке на картинку будем переключаться по этой ссылке, для этого ссылку нужно вытащить на самый верхний уровень(с помощью z-index) */
@@ -430,10 +507,14 @@ img{
 }
 
 .tours_tour{
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 1fr 108px 1fr;
   grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 108px; /* определяет расстояние (промежуток) между строками и столбцами в макете сетки */
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-bottom: 77px;
 }
 
@@ -462,6 +543,8 @@ img{
   text-decoration: none;
   padding-right: 59px;
   background: url(../img/svg/Shape\ \(1\).svg) no-repeat right center;
+  -webkit-transition: .2s all;
+  -o-transition: .2s all;
   transition: .2s all;
 }
 
@@ -479,15 +562,23 @@ img{
 }
 
 .top_cards{
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 1fr 57px 1fr 57px 1fr 57px 1fr 57px 1fr 57px 1fr;
   grid-template-columns: repeat(6, 1fr);
   grid-column-gap: 57px;
   grid-row-gap: 57px;
 }
 
 .top_card{
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-grid-column-span: 2;
   grid-column: span 2;
 }
 
@@ -501,10 +592,17 @@ img{
 }
 
 .top_card-stats{
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: flex-end; /* отодвигаем весь контент контейнера в конец */
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end; /* отодвигаем весь контент контейнера в конец */
   position: absolute;
   bottom: 0;
   left: 0;
@@ -598,8 +696,11 @@ img{
 }
 
 .footer_item{
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .footer_logo{
@@ -607,10 +708,15 @@ img{
 }
 
 .footer_nav{
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   width: 50%;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .footer_menu-title{
@@ -655,12 +761,15 @@ img{
     padding: 55px 15px;
   }
   .benefits_wrap{
-    box-shadow: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
   }
   .places_card_size_lg{
+    -ms-grid-column-span: 6;
     grid-column: span 6;
   }
   .places_card_size_sm{
+    -ms-grid-column-span: 6;
     grid-column: span 6;
   }
   .tours_tour{
@@ -680,6 +789,7 @@ img{
     row-gap: 25px;
   }
   .top_card{
+    -ms-grid-column-span: 3;
     grid-column: span 3;
   }
   .top_card-pic{
@@ -723,11 +833,17 @@ img{
     z-index: 10;
     padding: 75px;
     /* меню навигации по умолчанию должно быть в закрытом положении (в адаптивной версии), по этому мы сдвинем его вправа, так чтобы его не было видно */
-    transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+        -ms-transform: translateX(100%);
+            transform: translateX(100%);
+    -webkit-transition: .2s all linear;
+    -o-transition: .2s all linear;
     transition: .2s all linear;
   }
   .header_nav-active{
-    transform: translateX(0);
+    -webkit-transform: translateX(0);
+        -ms-transform: translateX(0);
+            transform: translateX(0);
   }
   .header_item{
     width: 100%;
@@ -760,10 +876,14 @@ img{
     top: 50%;
   }
   .header_nav-close-line:first-child{
-    transform: translateY(-50%)rotate(45deg);
+    -webkit-transform: translateY(-50%)rotate(45deg);
+        -ms-transform: translateY(-50%)rotate(45deg);
+            transform: translateY(-50%)rotate(45deg);
   }
   .header_nav-close-line:last-child{
-    transform: translateY(-50%)rotate(-45deg);
+    -webkit-transform: translateY(-50%)rotate(-45deg);
+        -ms-transform: translateY(-50%)rotate(-45deg);
+            transform: translateY(-50%)rotate(-45deg);
   }
   .intro{
     padding-top: 150px;
@@ -780,6 +900,18 @@ img{
     padding-bottom: 12px;
     background: transparent url(../img/svg/Oval.svg) no-repeat left top;
   }
+  .search-form_field::-webkit-input-placeholder{
+    font-size: 16px;
+  }
+  .search-form_field::-moz-placeholder{
+    font-size: 16px;
+  }
+  .search-form_field:-ms-input-placeholder{
+    font-size: 16px;
+  }
+  .search-form_field::-ms-input-placeholder{
+    font-size: 16px;
+  }
   .search-form_field::placeholder{
     font-size: 16px;
   }
@@ -790,6 +922,7 @@ img{
     margin-bottom: 36px;
   }
   .benefits_card{
+    -ms-grid-column-span: 3;
     grid-column: span 3;
     margin-bottom: 30px;
   }
@@ -815,16 +948,19 @@ img{
     margin-bottom: 35px;
   }
   .tour-pic, .tour_info{
+    -ms-grid-column-span: 2;
     grid-column: span 2; /* делвем что бы фото и текст занимали две колонки из двух, т.е. занимали всю ширину страницы и были друг под другом а не рядом */
     margin-bottom: 12px;
   }
   .tour-pic-mob-first{
-    grid-row-start: -1; /* меняем картинку и текст местами, нам нужно что бы во втором случа картинка была перед текстом, как и в первом случае(в первом случае так было изначально, а вот во втором случае как раз переделываем этим св-вом) */
+    -ms-grid-row: -1;
+      grid-row-start: -1; /* меняем картинку и текст местами, нам нужно что бы во втором случа картинка была перед текстом, как и в первом случае(в первом случае так было изначально, а вот во втором случае как раз переделываем этим св-вом) */
   }
   .top{
     margin-bottom: 80px;
   }
   .top_card{
+    -ms-grid-column-span: 6;
     grid-column: span 6;
   }
   .top_card-pic{
